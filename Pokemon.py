@@ -41,6 +41,29 @@ class PokemonType(Enum):
     def __str__(self) -> str:
         return self.name
 
+    def color(self) -> str:
+        """Gets hexadecimal code related to Pokémon type"""
+        type_color = {
+            PokemonType.Grass:  "#78c850",
+            PokemonType.Fire:  "#F08030",
+            PokemonType.Water:  "#6890F0",
+            PokemonType.Bug:  "#A8B820",
+            PokemonType.Normal:  "#A8A878",
+            PokemonType.Poison:  "#A040A0",
+            PokemonType.Electric:  "#F8D030",
+            PokemonType.Ground:  "#E0C068",
+            PokemonType.Fairy:  "#EE99AC",
+            PokemonType.Fighting:  "#C03028",
+            PokemonType.Psychic:  "#F85888",
+            PokemonType.Rock:  "#B8A035",
+            PokemonType.Ghost:  "#705898",
+            PokemonType.Ice:  "#98D8D8",
+            PokemonType.Dragon:  "#7038f8",
+            PokemonType.Flying:  "#66c3e8",
+            PokemonType.Dark:  "#472e07",
+            PokemonType.Steel:  "#828282",
+        }
+        return type_color[self]
 
 class Pokemon:
     def __init__(self, name: str, pokedex_number: int, type_1: str, type_2: str, is_legendary: bool, generation: int, img_variation: str = None) -> None:
