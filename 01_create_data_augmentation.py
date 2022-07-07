@@ -1,5 +1,5 @@
 from Pokemon import Pokedex
-from file_n_image_fn import setup_folder, file_exists, rotate_img, flip_img, adjust_brightness, zoomed_area, stretch
+from augmentation_helper import setup_folder, file_exists, rotate_img, flip_img, adjust_brightness, zoomed_area, stretch
 from tqdm import tqdm
 
 dex = Pokedex("pokemon.csv")
