@@ -1,14 +1,9 @@
 from Pokemon import Pokedex
-from augmentation_helper import setup_folder, file_exists, rotate_img, flip_img, adjust_brightness, zoomed_area, stretch
+from augmentation_helper import ILUMINATION_CHANGES, TRANSFORMS, setup_folder, file_exists, rotate_img, flip_img, adjust_brightness, zoomed_area, stretch
 from tqdm import tqdm
 
 dex = Pokedex("pokemon.csv")
-TRANSFORMS = ["h_flip", "v_flip", "rot_45", "rot_90",
-              "rot_135", "rot_180", "rot_225", "rot_270",              
-              "zoom_0", "zoom_1", "zoom_2", "zoom_3", "zoom_4",
-              "thin", "short"]
-ILUMINATION = ["darken_10", "darken_25", "darken_50",
-              "lighten_10", "lighten_25", "lighten_50"]
+
 ZOOM_FACTOR = 1.5
 TRANSFORM_FN = {
     "h_flip": lambda img: flip_img(img),
@@ -48,7 +43,7 @@ for transform in tqdm(TRANSFORMS, desc="Transforms"):
             transformed.save(transformed_path)
 
 for transform in tqdm([None] + TRANSFORMS, desc="Transforms"):
-    for light in ILUMINATION:
+    for light in ILUMINATION_CHANGES:
         transform_folder_path = f"{base_path}/{'' if transform == None else (transform + '_')}{light}"
         setup_folder(transform_folder_path)
 

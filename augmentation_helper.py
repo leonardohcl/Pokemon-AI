@@ -2,6 +2,15 @@ import os
 from PIL import ImageOps, ImageEnhance
 from PIL.Image import Image
 
+TRANSFORMS = ["h_flip", "v_flip", "rot_45", "rot_90",
+              "rot_135", "rot_180", "rot_225", "rot_270",              
+              "zoom_0", "zoom_1", "zoom_2", "zoom_3", "zoom_4",
+              "thin", "short"]
+ILUMINATION_CHANGES = ["darken_10", "darken_25", "darken_50",
+              "lighten_10", "lighten_25", "lighten_50"]
+
+AUGMENTATIONS = [t for t in TRANSFORMS] + [f"{t}_{l}" for t in TRANSFORMS for l in ILUMINATION_CHANGES]              
+
 
 def setup_folder(path) -> None:
     if os.path.isdir(path) == False:

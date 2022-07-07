@@ -1,5 +1,4 @@
 from collections import Counter
-import math
 import numpy as np
 from Pokemon import Pokedex, PokemonType, PokemonAI
 from sklearn import svm, neighbors, tree, naive_bayes, feature_selection
